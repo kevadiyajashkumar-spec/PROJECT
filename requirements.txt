@@ -1,3 +1,5 @@
+python-3.10.13
+
 # Core Dashboard
 dash==2.14.2
 dash-bootstrap-components==1.5.0
