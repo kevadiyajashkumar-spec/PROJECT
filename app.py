@@ -30,7 +30,7 @@ def create_app():
         suppress_callback_exceptions=True
     )
 
-    server = app.server 
+    
     
     # Set page title
     app.title = "Student Analytics Dashboard"
@@ -93,6 +93,9 @@ def main():
     # Create app
     print("🚀 Initializing dashboard...")
     app = create_app()
+
+    global server
+    server = app.server
     
     # Set layout
     app.layout = create_layout(filter_options)
