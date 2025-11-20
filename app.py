@@ -29,6 +29,8 @@ def create_app():
         external_stylesheets=[dbc.themes.BOOTSTRAP],
         suppress_callback_exceptions=True
     )
+
+    server = app.server 
     
     # Set page title
     app.title = "Student Analytics Dashboard"
