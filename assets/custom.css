@@ -1,0 +1,137 @@
+
+.Select-menu-outer {
+    z-index: 9999 !important;
+    position: absolute !important;
+}
+
+.Select-menu {
+    z-index: 9999 !important;
+    max-height: 300px !important;
+}
+
+/* Dash dropdown specific fixes */
+.dropdown .Select-menu-outer {
+    z-index: 9999 !important;
+}
+
+/* Ensure the parent container doesn't clip the dropdown */
+.row {
+    overflow: visible !important;
+}
+
+.col, [class*="col-"] {
+    overflow: visible !important;
+}
+
+.card {
+    overflow: visible !important;
+}
+
+.card-body {
+    overflow: visible !important;
+}
+
+/* Filter card must allow overflow */
+.mb-4.shadow-sm {
+    overflow: visible !important;
+    position: relative;
+    z-index: 100;
+}
+
+/* All content below filters should have lower z-index */
+.container-fluid > .row:not(:first-child) {
+    position: relative;
+    z-index: 1;
+}
+
+/* KPI cards specifically */
+.text-success, .text-warning, .text-danger {
+    position: relative;
+    z-index: 1;
+}
+
+/* Dropdown container must be relative with high z-index */
+.dash-dropdown {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* Dropdown input field */
+.Select-control {
+    border-radius: 6px;
+    position: relative;
+    z-index: 1000;
+    background-color: white !important;
+}
+
+/* When dropdown is open, increase z-index further */
+.Select.is-open {
+    z-index: 10000 !important;
+}
+
+.Select.is-open .Select-menu-outer {
+    z-index: 10000 !important;
+}
+
+/* Container overflow fix */
+.container-fluid {
+    overflow: visible !important;
+}
+
+/* Bootstrap container fixes */
+.container, .container-fluid {
+    overflow: visible !important;
+}
+
+/* Smooth transitions */
+.dash-graph {
+    transition: all 0.3s ease;
+}
+
+/* Card hover effects */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Better loading indicator */
+._dash-loading {
+    opacity: 0.3;
+}
+
+/* Table styling */
+.table-hover tbody tr:hover {
+    background-color: #f8fafc;
+    cursor: pointer;
+}
+
+/* Search button styling */
+#search-button {
+    transition: all 0.2s ease;
+}
+
+#search-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#search-button:active {
+    transform: scale(0.98);
+}
+
+/* Ensure alerts don't interfere */
+.alert {
+    position: relative;
+    z-index: 1;
+}
+
+/* Chart containers */
+.js-plotly-plot {
+    position: relative;
+    z-index: 1;
+}

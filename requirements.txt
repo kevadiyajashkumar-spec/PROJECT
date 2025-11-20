@@ -1,0 +1,25 @@
+# Core Dashboard
+dash==2.14.2
+dash-bootstrap-components==1.5.0
+plotly==5.18.0
+polars==0.20.2
+
+# Data Processing
+pandas==2.1.4
+numpy==1.26.2
+scipy==1.11.4
+
+# API & LLM
+openai==1.6.1
+fastapi==0.108.0
+uvicorn==0.25.0
+pydantic==2.5.3
+
+# PDF Generation
+reportlab==4.0.7
+kaleido==0.2.1
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+gdown
