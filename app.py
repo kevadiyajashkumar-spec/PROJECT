@@ -19,22 +19,16 @@ from config import HOST, PORT, DEBUG
 def create_app():
     """
     Create and configure the Dash application.
-    
-    Returns:
-        Dash: Configured Dash app
     """
-    # Initialize Dash app
     app = Dash(
         __name__,
         external_stylesheets=[dbc.themes.BOOTSTRAP],
         suppress_callback_exceptions=True
     )
 
-    
-    
     # Set page title
     app.title = "Student Analytics Dashboard"
-    
+
     # Custom loading style
     app.index_string = '''
     <!DOCTYPE html>
@@ -70,45 +64,36 @@ def create_app():
         </body>
     </html>
     '''
-    
     return app
 
 
+# 🔹 Create Dash app globally (Gunicorn needs this)
+app = create_app()
+server = app.server  # Required for Render/Gunicorn
+
+
 def main():
-    """Main function to run the application."""
-    
+    """Main function to run the dashboard."""
     print("=" * 60)
     print("🎓 Student Analytics Dashboard")
     print("=" * 60)
-    
+
     # Load and process data
     print("\n📊 Loading data...")
     df = load_data()
     df = add_performance_column(df)
-    
+
     # Get filter options
     print("🔍 Preparing filters...")
     filter_options = get_filter_options(df)
-    
-    # Create app
-    print("🚀 Initializing dashboard...")
-    app = create_app()
 
-    global server
-    server = app.server
-    
-    # Set layout
+    # Set layout and callbacks
     app.layout = create_layout(filter_options)
-    
-    # Register callbacks
     register_callbacks(app, df)
-    
-    # Start server
-    print(f"\n✅ Dashboard ready!")
-    print(f"🌐 Open your browser and navigate to: http://localhost:{PORT}")
-    print(f"📁 Using data from: {df.shape[0]:,} records")
-    print("\n⏹  Press Ctrl+C to stop the server\n")
-    print("=" * 60)
+
+    # Local run
+    print(f"\n🌐 Open your browser at: http://localhost:{PORT}")
+    print(f"📁 Loaded data: {df.shape[0]:,} records\n")
     
     app.run_server(host=HOST, port=PORT, debug=DEBUG)
 
