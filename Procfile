@@ -1,1 +1,1 @@
-web: gunicorn app:app --timeout 200 --workers 4
+startCommand: gunicorn app:server --workers 4 --timeout 200
